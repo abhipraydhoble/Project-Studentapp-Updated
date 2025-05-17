@@ -129,18 +129,3 @@ cloudblitz-student-app/
 ├── frontend/  # React application
 ```
 
----
-
-## 👨‍💼 Author
-
-- Rajat P. Zade
-
----
-
-## 📢 Important Notes
-
-- Make sure RDS Security Group allows access from backend server IP.
-- Handle environment variables securely in production.
-- Update frontend and backend URLs properly after deployment.
-
----
