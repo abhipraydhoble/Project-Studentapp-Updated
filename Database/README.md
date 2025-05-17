@@ -1,16 +1,19 @@
 
-## 🚀 Setup Instructions
+
 
 ### 1. Setup MariaDB (Database Layer)
 
-- Launch a MariaDB instance using AWS RDS.
-- Connect to your RDS instance from a Linux terminal:
+- Create MariaDB instance using AWS RDS.
+- Connect to your RDS instance f:
 
 ```bash
 sudo apt update
 sudo apt install mysql-client -y
-mysql -h <rds-endpoint> -u <db-username> -p<password>
 ```
+**Login To RDS**
+````
+mysql -h <rds-endpoint> -u <db-username> -p<password>
+````
 
 - Create the database:
 
@@ -43,6 +46,6 @@ exit
 
 
 
-
+- Note: check port no 3306 added in security group
 
 
