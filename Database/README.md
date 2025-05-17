@@ -1,7 +1,7 @@
 
 
 
-### 1. Setup MariaDB (Database Layer)
+### 1. Setup MariaDB 
 
 - Create MariaDB instance using AWS RDS.
 - Connect to your RDS instance f:
