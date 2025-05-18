@@ -3,7 +3,7 @@
 - Clone the repository:
 
 ```bash
-git clone https://github.com/rajatpzade/cloudblitz-student-app.git
+git clone https://github.com/abhipraydhoble/studentapp_updated.git
 ```
 
 - Install Java 17:
