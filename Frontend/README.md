@@ -1,10 +1,6 @@
 ### 3. Setup Frontend (React)
 
-- Clone the project repository (if not already cloned):
 
-```bash
-git clone https://github.com/rajatpzade/cloudblitz-student-app.git
-```
 
 - Navigate to the frontend directory:
 
