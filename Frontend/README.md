@@ -5,7 +5,7 @@
 - Navigate to the frontend directory:
 
 ```bash
-cd cloudblitz-student-app/frontend
+cd studentapp_updated/Frontend
 ```
 
 - Install Node.js and npm:
@@ -109,6 +109,12 @@ sudo cp -rv dist/* /var/www/html/
 
 ```bash
 sudo systemctl start apache2
+```
+
+- Make Sure to  Run the backend application in Backend/target dir:
+
+```bash
+java -jar target/student-registration-backend-0.0.1-SNAPSHOT.jar
 ```
 
 - Now access your site using the public IP of your server.
