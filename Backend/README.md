@@ -43,7 +43,8 @@ spring.datasource.password=<db-password>
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
-```![image](https://github.com/user-attachments/assets/649fe741-a972-4ec1-8add-614836000275)
+```
+![image](https://github.com/user-attachments/assets/649fe741-a972-4ec1-8add-614836000275)
 
 
 - Build the project:
