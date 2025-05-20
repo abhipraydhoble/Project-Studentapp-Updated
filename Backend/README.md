@@ -22,7 +22,7 @@ sudo apt install maven -y
 - Navigate to the backend directory:
 
 ```bash
-cd cloudblitz-student-app/backend
+cd studentapp_updated/backend
 ```
 
 - Configure database connection:
