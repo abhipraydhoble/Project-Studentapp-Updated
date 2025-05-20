@@ -6,11 +6,11 @@
 git clone https://github.com/abhipraydhoble/studentapp_updated.git
 ```
 
-- Install Java 17:
+- Install Java 21:
 
 ```bash
 sudo apt-get update
-sudo apt install openjdk-17-jdk -y
+sudo apt install openjdk-21-jdk -y
 ```
 
 - Install Maven:
