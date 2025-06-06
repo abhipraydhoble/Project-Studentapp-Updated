@@ -3,7 +3,7 @@
 - Clone the repository:
 
 ```bash
-git clone https://github.com/abhipraydhoble/studentapp_updated.git
+git clone https://github.com/abhipraydhoble/Project-Studentapp_Updated.git
 ```
 
 - Install Java 21:
