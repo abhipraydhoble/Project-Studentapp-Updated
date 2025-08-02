@@ -19,6 +19,8 @@ mysql -h <rds-endpoint> -u <db-username> -p<password>
 
 ```sql
 CREATE DATABASE student_db;
+```
+```
 USE student_db;
 ```
 
