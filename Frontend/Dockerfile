@@ -1,31 +1,34 @@
-# Step 1: Use the official Node.js image as a parent image
-FROM node:16-slim
+# ---------- Stage 1: Build React App ----------
+FROM node:18-slim AS build
 
-# Step 2: Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Step 3: Copy the frontend project files into the container
-COPY . /app
+# Copy package files first (better caching for Docker)
+COPY package*.json ./
 
-# Step 4: Install the frontend dependencies
+# Install dependencies
 RUN npm install
 
-# Step 5: Set the environment variable for the backend API URL
-# Replace the placeholder with your actual backend server IP
-#ENV REACT_APP_BACKEND_URL=http://172.17.0.3:8080   
-# manual edit file vim src/api/userService.js and add your public backend server IP
+# Copy rest of the project
+COPY . .
 
-# Step 6: Build the frontend for production
+# Build the React app for production
+ENV REACT_APP_BACKEND_URL=http://13.60.38.103:8080
 RUN npm run build
 
-# Step 7: Install Apache2 for serving the built files
-RUN apt-get update && apt-get install -y apache2
 
-# Step 8: Copy the build files to the Apache default web directory
-RUN cp -rf /app/dist/* /var/www/html/
+# ---------- Stage 2: Serve with Nginx ----------
+FROM nginx:alpine
 
-# Step 9: Expose the port Apache will serve on
+# Remove default nginx index.html
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy build files from first stage (dist instead of build)
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose port 80
 EXPOSE 80
 
-# Step 10: Start Apache2 service to serve the frontend application
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
