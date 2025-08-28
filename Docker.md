@@ -60,7 +60,8 @@ git clone https://github.com/abhipraydhoble/Project-Studentapp_Updated.git
 cd studentapp_updated/backend
 ```
 
-- edit dockerfile
+- edit  vim src/main/resources/application.properties
+-  dockerfile
 
 ```Dockerfile
 FROM maven:3.9.6-eclipse-temurin-17 AS builder
