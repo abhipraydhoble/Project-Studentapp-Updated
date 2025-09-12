@@ -53,14 +53,11 @@ spring.jpa.show-sql=true
 mvn clean package
 ```
 
-- Run the backend application:
+- Run the backend application after creating frontend:
 
 ```bash
 java -jar target/student-registration-backend-0.0.1-SNAPSHOT.jar
 ```
-
-The backend server will start at:
-`http://<your-backend-server-ip>:8080`
 
 ---
 
