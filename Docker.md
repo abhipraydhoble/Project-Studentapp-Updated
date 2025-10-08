@@ -60,8 +60,16 @@ git clone https://github.com/abhipraydhoble/Project-Studentapp_Updated.git
 cd studentapp_updated/backend
 ```
 
-- edit  ````vim src/main/resources/application.properties```` and add database endpoint, username and password
--  also change in dockerfile
+#### edit
+  ````
+  vim src/main/resources/application.properties
+  ````
+  - add database endpoint
+  - username
+  - password
+
+#### edit Dockerfile
+- add database endpoint
 
 ```Dockerfile
 FROM maven:3.9.6-eclipse-temurin-17 AS builder
