@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: std-backend
+  template:
+    metadata:
+      labels:
+        app: std-backend
+    spec:
+      containers:
+        - name: std-backend
+          image: abhipraydh96/b57-std-be
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_URL
+              value: jdbc:mariadb://database-1.c3u408emo75f.eu-north-1.rds.amazonaws.com:3306/student_db
+            - name: DB_USERNAME
+              value: admin
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DB_PASSWORD
