@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: std-frontend
+  template:
+    metadata:
+      labels:
+        app: std-frontend
+    spec:
+      containers:
+        - name: std-frontend
+          image: abhipraydh96/b57-std-fe
+          ports:
+            - containerPort: 80
