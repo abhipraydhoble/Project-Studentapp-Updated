@@ -9,8 +9,9 @@ git clone https://github.com/abhipraydhoble/Project-Studentapp-Updated.git
 - Install Java 21:
 
 ```bash
-sudo apt-get update
-sudo apt install openjdk-21-jdk -y
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+
 ```
 
 - Install Maven:
