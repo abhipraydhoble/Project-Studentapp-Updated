@@ -13,8 +13,20 @@ Deployment: Docker containers on EC2
 
 
 ---
+## Launch EC2 Instance(ubuntu)
+<img width="1911" height="737" alt="image" src="https://github.com/user-attachments/assets/7e915d39-7d3e-45aa-bef3-124f4fd93374" />
 
-
+## Connect and Install Docker
+````
+sudo apt update -y
+sudo apt install  docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker ubuntu
+newgrp docker
+sudo chmod 777 /var/run/docker.sock
+````
+---
 ## 🛢️ Database Setup (MariaDB on AWS RDS)
 
 - Create MariaDB instance using AWS RDS.
