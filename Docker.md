@@ -1,4 +1,4 @@
-#🎓 StudentApplication – Full-Stack Project Using Docker
+# 🎓 StudentApplication – Full-Stack Project Using Docker
 
 ### 🧱 Architecture Overview
 
