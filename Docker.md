@@ -1,22 +1,35 @@
-# Project using docker 
+🎓 StudentApplication – Full-Stack Project Using Docker
+
+🧱 Architecture Overview
+
+Database: MariaDB (AWS RDS)
+
+Backend: Spring Boot (Dockerized)
+
+Frontend: React + Nginx (Dockerized)
+
+Deployment: Docker containers on EC2
+---
 
 
-
-# 1. Setup MariaDB 
+## Database Setup (MariaDB on AWS RDS)
 
 - Create MariaDB instance using AWS RDS.
-- Connect to your RDS instance f:
+- Connect to your RDS instance
+<img width="1917" height="740" alt="image" src="https://github.com/user-attachments/assets/3e6a7bfa-f003-49a8-a24f-4043dbbd7763" />
 
 ```bash
 sudo apt update
 sudo apt install mysql-client -y
 ```
-**Login To RDS**
+### Login To RDS
 ````
 mysql -h <rds-endpoint> -u <db-username> -p<password>
 ````
+<img width="1887" height="155" alt="image" src="https://github.com/user-attachments/assets/e95cc655-0b14-45ca-9923-a7f93d9f2342" />
 
-- Create the database:
+
+### Create the database:
 
 ```sql
 CREATE DATABASE student_db;
@@ -25,7 +38,7 @@ CREATE DATABASE student_db;
 USE student_db;
 ```
 
-- Create the students table:
+### Create the students table:
 
 ```sql
 CREATE TABLE `students` (
@@ -41,35 +54,38 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 ```
 
-- Exit MySQL:
+### Exit MySQL:
 
 ```bash
 exit
 ```
+---
 
-# 2. Setup Backend (Spring Boot)
+## Backend Setup (Spring Boot + Docker)
 
-- Clone the repository:
-
-```bash
-git clone https://github.com/abhipraydhoble/Project-Studentapp_Updated.git
-```
-- Navigate to the backend directory:
+### Clone project repository:
 
 ```bash
-cd studentapp_updated/backend
+git clone https://github.com/abhipraydhoble/studentapp-docker.git
+```
+### Navigate to the backend directory:
+
+```bash
+cd studentapp-docker/Backend
 ```
 
-#### edit
+### Edit the application properties file:
   ````
   vim src/main/resources/application.properties
   ````
   - add database endpoint
   - username
   - password
+<img width="1311" height="130" alt="image" src="https://github.com/user-attachments/assets/56aa4524-3617-4647-a8df-e3ceb659eb32" />
 
-#### edit Dockerfile
+### Edit Backend Dockerfile
 - add database endpoint
+<img width="1417" height="572" alt="image" src="https://github.com/user-attachments/assets/ca753054-6240-46b6-b509-99f27b7e8ac7" />
 
 ```Dockerfile
 # Build stage
@@ -94,36 +110,40 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
 
-### after apply docker build command 
+### Now lets create an Backend Image
 
 ````
 docker build -t backend .
 ````
-## now run backend container
-- note change DB_PASSWORD=YourSecret
+### Run Container 
+- note change DB_PASSWORD=YourPass
 
 ````
 docker run -itd --name backend-cont  -e DB_PASSWORD=Passwd123$ -p 8080:8080 backend
 
 ````
-## check running cont using
+### Check Running Container
 ````
 docker ps
 ````
+---
 
+## Frontend Setup (React + Docker + Nginx)
 
-# 3. Frontend
-
-- Navigate to the frontend directory:
+### Navigate to the frontend directory:
 
 ```bash
 cd ../Frontend
 ```
-### connect backend to frontend
-- add backend IP into "src/api/userService.js"
+### Configure Backend API URL
+````
+vim src/api/userService.js
+````
+<img width="711" height="573" alt="image" src="https://github.com/user-attachments/assets/cbdc71f4-09e1-4431-94d0-7144cc1ed71e" />
 
-## now back to frontend dir and edit dockerfile
-- replace your backend ip ````ENV REACT_APP_BACKEND_URL=http://13.60.38.103:8080````
+### Edit Frontend Dockerfile
+- replace your backend ip:
+- **ENV REACT_APP_BACKEND_URL=http://13.60.38.103:8080**
   
 ```Dockerfile
 # ---------- Stage 1: Build React App ----------
@@ -161,15 +181,17 @@ EXPOSE 80
 # Start nginx
 CMD ["nginx", "-g", "daemon off;"]
 ````
-### build docker image
+### Build Docker Image
 ````
 docker build -t frontend .
 ````
-### run docker cont
+### Run Docker Container
 
 ````
 docker run -itd --name frontend-cont -p 80:80 frontend
 ````
 
-# 4. Copy Instance ip and Access Studentapp
-<img width="1918" height="950" alt="image" src="https://github.com/user-attachments/assets/c58a3d59-d9c3-4901-a28a-652535c478dc" />
+### Access the Application
+**Open browser:
+<img width="1907" height="967" alt="image" src="https://github.com/user-attachments/assets/639e9915-9443-4f5e-97d1-fee613bfa2da" />
+- note: make sure required ports are allowed in security group
