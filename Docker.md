@@ -86,7 +86,7 @@ COPY --from=builder /app/target/student-app.jar app.jar
 
 EXPOSE 8080
 
-ENV DB_URL=jdbc:mariadb://mariadb:3306/student_db \
+ENV DB_URL=jdbc:mariadb://<rds-endpoint>:3306/student_db \
     DB_USERNAME=admin
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
@@ -97,13 +97,13 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 ### after apply docker build command 
 
 ````
-docker build -t student-backend .
+docker build -t backend .
 ````
 ## now run backend container
 - note change DB_PASSWORD=YourSecret
 
 ````
-docker run -itd --name back-app  -e DB_PASSWORD=Passwd123$ -p 8080:8080 student-backend
+docker run -itd --name backend-cont  -e DB_PASSWORD=Passwd123$ -p 8080:8080 backend
 
 ````
 ## check running cont using
@@ -163,12 +163,12 @@ CMD ["nginx", "-g", "daemon off;"]
 ````
 ### build docker image
 ````
-docker build -t student-frontend .
+docker build -t frontend .
 ````
 ### run docker cont
 
 ````
-docker run -itd --name studentapp -p 80:80 student-frontend
+docker run -itd --name frontend-cont -p 80:80 frontend
 ````
 
 # 4. Copy Instance ip and Access Studentapp
