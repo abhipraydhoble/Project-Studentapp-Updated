@@ -15,7 +15,7 @@ Deployment: Docker containers on EC2
 ---
 
 
-## Database Setup (MariaDB on AWS RDS)
+## 🛢️ Database Setup (MariaDB on AWS RDS)
 
 - Create MariaDB instance using AWS RDS.
 - Connect to your RDS instance
@@ -65,7 +65,7 @@ exit
 ```
 ---
 
-## Backend Setup (Spring Boot + Docker)
+## 🧠 Backend Setup (Spring Boot + Docker)
 
 ### Clone project repository:
 
@@ -132,7 +132,7 @@ docker ps
 ````
 ---
 
-## Frontend Setup (React + Docker + Nginx)
+## 🖥️ Frontend Setup (React + Docker + Nginx)
 
 ### Navigate to the frontend directory:
 
