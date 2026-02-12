@@ -7,8 +7,8 @@ Database: MariaDB (AWS RDS)
 Backend: Spring Boot (Dockerized)
 
 Frontend: React + Nginx (Dockerized)
-
 Deployment: Docker containers on EC2
+
 ---
 
 
