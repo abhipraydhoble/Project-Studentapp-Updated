@@ -21,6 +21,7 @@ Deployment: Docker containers on EC2
 - Connect to your RDS instance
 <img width="1917" height="740" alt="image" src="https://github.com/user-attachments/assets/3e6a7bfa-f003-49a8-a24f-4043dbbd7763" />
 
+
 ```bash
 sudo apt update
 sudo apt install mysql-client -y
