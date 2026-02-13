@@ -24,7 +24,7 @@ COPY --from=builder /app/target/student-app.jar app.jar
 EXPOSE 8080
 
 # Environment variables (no localhost)
-ENV DB_URL=jdbc:mariadb://mariadb:3306/student_db \
+ENV DB_URL=jdbc:mariadb://database-1.c5g2e4cuwxef.ap-south-1.rds.amazonaws.com:3306/student_db \
     DB_USERNAME=admin
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
