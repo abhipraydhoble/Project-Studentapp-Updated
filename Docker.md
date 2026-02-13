@@ -10,6 +10,9 @@ Frontend: React + Nginx (Dockerized)
 
 Deployment: Docker containers on EC2
 
+<img width="1351" height="582" alt="image" src="https://github.com/user-attachments/assets/79ea0259-69e7-41f4-9820-9c782c59a214" />
+
+
 
 
 ---
