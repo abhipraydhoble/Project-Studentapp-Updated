@@ -51,7 +51,7 @@ spring.jpa.show-sql=true
 - Build the project:
 
 ```bash
-mvn clean package
+mvn clean package -DskipTests 
 ```
 
 - Run the backend application after creating frontend:
